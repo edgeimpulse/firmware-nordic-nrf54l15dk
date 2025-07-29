@@ -5,11 +5,4 @@ tags
 bootloader/
 modules/
 tools/
-edge-impulse/firmware-sdk
-#comment if you want to commit your model
-edge-impulse-sdk
-firmware-sdk
-firmware-sdk/
-model-parameters/
-tflite-model/
 *.hex
