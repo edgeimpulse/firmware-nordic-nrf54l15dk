@@ -225,9 +225,9 @@ void ei_start_impulse(bool continuous, bool debug, bool use_max_uart_speed)
 
     // summary of inferencing settings (from model_metadata.h)
     ei_printf("Inferencing settings:\n");
-    ei_printf("\tInterval: %.04fms.\n", (float)EI_CLASSIFIER_INTERVAL_MS);
+    ei_printf("\tInterval: %.04fms.\n", (double)EI_CLASSIFIER_INTERVAL_MS);
     ei_printf("\tFrame size: %d\n", EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE);
-    ei_printf("\tSample length: %.02f ms.\n", (float)(EI_CLASSIFIER_RAW_SAMPLE_COUNT * EI_CLASSIFIER_INTERVAL_MS));
+    ei_printf("\tSample length: %.02f ms.\n", (double)(EI_CLASSIFIER_RAW_SAMPLE_COUNT * EI_CLASSIFIER_INTERVAL_MS));
     ei_printf("\tNo. of classes: %d\n", sizeof(ei_classifier_inferencing_categories) /
                                             sizeof(ei_classifier_inferencing_categories[0]));
     ei_printf("Starting inferencing, press 'b' to break\n");

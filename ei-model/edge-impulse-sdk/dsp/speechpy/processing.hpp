@@ -470,7 +470,7 @@ namespace processing {
                 features_buffer_ptr = &features_matrix->buffer[ix * vec_pad.cols];
                 for (size_t col = 0; col < vec_pad.cols; col++) {
                     *(features_buffer_ptr) = (*(features_buffer_ptr)) /
-                                             (window_variance.buffer[col] + 1e-10);
+                                             (window_variance.buffer[col] + 1e-10f);
                     features_buffer_ptr++;
                 }
             }
@@ -497,8 +497,8 @@ namespace processing {
 
         for (size_t ix = 0; ix < features_matrix->rows * features_matrix->cols; ix++) {
             float f = features_matrix->buffer[ix];
-            if (f < 1e-30) {
-                f = 1e-30;
+            if (f < 1e-30f) {
+                f = 1e-30f;
             }
             f = numpy::log10(f);
             f *= 10.0f; // scale by 10
@@ -535,8 +535,8 @@ namespace processing {
 
         for (size_t ix = 0; ix < features_matrix->rows * features_matrix->cols; ix++) {
             float f = features_matrix->buffer[ix];
-            if (f < 1e-30) {
-                f = 1e-30;
+            if (f < 1e-30f) {
+                f = 1e-30f;
             }
             f = numpy::log10(f);
             f *= 10.0f; // scale by 10

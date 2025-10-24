@@ -322,14 +322,14 @@ public:
         }
         float bin = filter_cutoff * fft_length / sampling_freq;
         if (is_high_pass) {
-            *start_bin = static_cast<size_t>(bin - 0.5) + 1; // add one b/c we want to always round up
+            *start_bin = static_cast<size_t>(bin - 0.5f) + 1; // add one b/c we want to always round up
             // don't use the DC bin b/c it's zero
             *start_bin = *start_bin == 0 ? 1 : *start_bin;
             *stop_bin = fft_length / 2 + 1; // go one past
         }
         else {
             *start_bin = 1;
-            *stop_bin = static_cast<size_t>(bin + 0.5) + 1; // go one past
+            *stop_bin = static_cast<size_t>(bin + 0.5f) + 1; // go one past
         }
     }
 

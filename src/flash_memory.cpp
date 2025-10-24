@@ -112,8 +112,8 @@ EiFlashMemory::EiFlashMemory(uint32_t config_size):EiDeviceMemory(config_size, 9
     memory_blocks = memory_size / block_size;
 
     LOG_DBG("Using flash device: %d", ext_flash_area->fa_id);
-    LOG_DBG("Flash device size: %lu bytes", ext_flash_area->fa_size);
-    LOG_DBG("Flash device offset: 0x%x", ext_flash_area->fa_off);
+    LOG_DBG("Flash device size: %u bytes", ext_flash_area->fa_size);
+    LOG_DBG("Flash device offset: 0x%lx", ext_flash_area->fa_off);
     LOG_DBG("Flash device align: 0x%x", flash_area_align((const struct flash_area *)ext_flash_area));
     LOG_DBG("Flash device sector size: %d bytes", 4096);
 }

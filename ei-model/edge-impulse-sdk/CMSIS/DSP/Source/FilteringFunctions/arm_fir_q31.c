@@ -109,7 +109,7 @@
                       
 #define FIR_Q31_MAIN_CORE()                                                              \
 {                                                                                        \
-    q31_t *pRefStatePtr = S->pState + 2*ROUND_UP(blockSize, 4);                          \
+    q31_t *pRefStatePtr = S->pState + 2*EI_ROUND_UP(blockSize, 4);                          \
     q31_t      *pState = pRefStatePtr; /* State pointer */                               \
     const q31_t *pCoeffs = S->pCoeffs;  /* Coefficient pointer */                        \
     q31_t       *pStateCur;             /* Points to the current sample of the state */  \
@@ -212,7 +212,7 @@ static void arm_fir_q31_1_4_mve(const arm_fir_instance_q31 * S,
     const q31_t * __restrict pSrc, 
     q31_t * __restrict pDst, uint32_t blockSize)
 {
-    q31_t *pRefStatePtr = S->pState + 2*ROUND_UP(blockSize, 4);
+    q31_t *pRefStatePtr = S->pState + 2*EI_ROUND_UP(blockSize, 4);
     q31_t      *pState = pRefStatePtr; /* State pointer */
     const q31_t    *pCoeffs = S->pCoeffs; /* Coefficient pointer */
     q31_t    *pStateCur;        /* Points to the current sample of the state */
@@ -454,7 +454,7 @@ static void arm_fir_q31_29_32_mve(const arm_fir_instance_q31 * S,
     q31_t * __restrict pDst,
                                uint32_t blockSize)
 {
-    q31_t *pRefStatePtr = S->pState + 2*ROUND_UP(blockSize, 4);
+    q31_t *pRefStatePtr = S->pState + 2*EI_ROUND_UP(blockSize, 4);
     q31_t      *pState = pRefStatePtr; /* State pointer */
     const q31_t    *pCoeffs = S->pCoeffs;       /* Coefficient pointer */
     q31_t          *pStateCur;  /* Points to the current sample of the state */
@@ -654,7 +654,7 @@ void arm_fir_q31(
         q31_t * pDst,
         uint32_t blockSize)
 {
-    q31_t *pRefStatePtr = S->pState + 2*ROUND_UP(blockSize, 4);
+    q31_t *pRefStatePtr = S->pState + 2*EI_ROUND_UP(blockSize, 4);
     q31_t      *pState = pRefStatePtr; /* State pointer */
     const q31_t    *pCoeffs = S->pCoeffs; /* Coefficient pointer */
     q31_t    *pStateCur;        /* Points to the current sample of the state */

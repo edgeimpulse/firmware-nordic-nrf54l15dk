@@ -50,7 +50,7 @@ public:
 #if EI_PORTING_RENESASRA65 == 1
         return 1127.0 * log(1.0 + f / 700.0f);
 #else
-        return 1127.0 * numpy::log((1.0 + f / 700.0f));
+        return 1127.0f * numpy::log(1.0f + f / 700.0f);
 #endif
     }
 

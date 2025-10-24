@@ -45,7 +45,7 @@ public:
         for(int axis = 0; (size_t)axis < this->means.size(); axis++) {
         ei_printf("axis: %i\n", axis);
             for (size_t i = 0; i < this->means.size(); i++) {
-                ei_printf("%f ", this->means[axis][i]);
+                ei_printf("%f ", (double)this->means[axis][i]);
             }
         }
         ei_printf("\n");

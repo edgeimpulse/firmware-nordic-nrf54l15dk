@@ -1687,7 +1687,7 @@ public:
 
         float min_max_diff = (max_matrix.buffer[0] - min_matrix.buffer[0]);
         /* Prevent divide by 0 by setting minimum value for divider */
-        float row_scale = min_max_diff < 0.001 ? 1.0f : 1.0f / min_max_diff;
+        float row_scale = min_max_diff < 0.001f ? 1.0f : 1.0f / min_max_diff;
 
         r = subtract(&temp_matrix, min_matrix.buffer[0]);
         if (r != EIDSP_OK) {
@@ -2059,7 +2059,7 @@ public:
         }
 
         for (size_t ix = 0; ix < out_buffer_size; ix++) {
-            out_buffer[ix] = (1.0 / static_cast<float>(fft_points)) *
+            out_buffer[ix] = (1.0f / static_cast<float>(fft_points)) *
                 (out_buffer[ix] * out_buffer[ix]);
         }
 
