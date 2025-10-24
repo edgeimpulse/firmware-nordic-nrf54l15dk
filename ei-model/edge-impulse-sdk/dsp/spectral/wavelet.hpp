@@ -157,7 +157,7 @@ class wavelet {
     static float get_percentile_from_sorted(const fvec &sorted, float percentile)
     {
         // adding 0.5 is a trick to get rounding out of C flooring behavior during cast
-        size_t index = (size_t) ((percentile * (sorted.size()-1)) + 0.5);
+        size_t index = (size_t) ((percentile * (sorted.size()-1)) + 0.5f);
         return sorted[index];
     }
 

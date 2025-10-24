@@ -122,7 +122,7 @@ public:
             // thus calculating the bucket to 64, not 65.
             // we're adjusting this here a tiny bit to ensure we have the same result
             if (ix == num_filter + 2 - 1) {
-                hertz[ix] -= 0.001;
+                hertz[ix] -= 0.001f;
             }
         }
         ei_dsp_free(mels, mels_mem_size);
@@ -306,7 +306,7 @@ public:
         if (mels[MELS_SIZE-1] > high_frequency) {
             mels[MELS_SIZE-1] = high_frequency;
         }
-        mels[MELS_SIZE-1] -= 0.001;
+        mels[MELS_SIZE-1] -= 0.001f;
         bins[MELS_SIZE-1] = get_fft_bin_from_hertz(max_bin, mels[MELS_SIZE-1], sampling_frequency);
 
         EI_DSP_MATRIX(power_spectrum_frame, 1, power_spectrum_frame_size);
