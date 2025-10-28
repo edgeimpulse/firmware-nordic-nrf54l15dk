@@ -1,7 +1,7 @@
 app:
   address: 0x10200
   region: flash_primary
-  size: 0xdfe00
+  size: 0x144E00
 mcuboot:
   address: 0x0
   region: flash_primary
@@ -12,21 +12,16 @@ mcuboot_pad:
   size: 0x200
 mcuboot_primary:
   address: 0x10000
-  orig_span: &id001
-  - mcuboot_pad
-  - app
+  span: [mcuboot_pad, app]
   region: flash_primary
-  size: 0xe0000
-  span: *id001
+  size: 0x145000
 mcuboot_primary_app:
   address: 0x10200
-  orig_span: &id002
-  - app
+  span: [app]
   region: flash_primary
-  size: 0xdfe00
-  span: *id002
+  size: 0x144E00
 settings_storage:
-  address: 0xf0000
+  address: 0x155000
   region: flash_primary
   size: 0x10000
 mcuboot_primary_1:
