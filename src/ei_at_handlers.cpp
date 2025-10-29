@@ -140,8 +140,8 @@ bool at_set_mgmt_url(const char **argv, const int argc)
 bool at_get_sample_settings(void)
 {
     ei_printf("Label:     %s\n", dev->get_sample_label().c_str());
-    ei_printf("Interval:  %.2f ms.\n", dev->get_sample_interval_ms());
-    ei_printf("Length:    %lu ms.\n", dev->get_sample_length_ms());
+    ei_printf("Interval:  %.2lf ms.\n", (double)dev->get_sample_interval_ms());
+    ei_printf("Length:    %u ms.\n", dev->get_sample_length_ms());
     ei_printf("HMAC key:  %s\n", dev->get_sample_hmac_key().c_str());
 
     return true;
@@ -407,7 +407,7 @@ bool at_get_config(void)
     ei_printf("ID:         %s\n", dev->get_device_id().c_str());
     ei_printf("Type:       %s\n", dev->get_device_type().c_str());
     ei_printf("AT Version: " AT_COMMAND_VERSION "\n");
-    ei_printf("Data Transfer Baudrate: %lu\n", dev->get_data_output_baudrate());
+    ei_printf("Data Transfer Baudrate: %u\n", dev->get_data_output_baudrate());
     ei_printf("\n");
     ei_printf("===== Sensors ======\n");
     for (size_t ix = 0; ix < sensor_list_size; ix++) {
@@ -417,7 +417,7 @@ bool at_get_config(void)
                 if (fx != 0) {
                     ei_printf(", ");
                 }
-                ei_printf("%.2fHz", sensor_list[ix].frequencies[fx]);
+                ei_printf("%.2fHz", (double)sensor_list[ix].frequencies[fx]);
             }
         }
         ei_printf("]\n");
@@ -438,8 +438,8 @@ bool at_get_config(void)
     ei_printf("\n");
     ei_printf("===== Sampling parameters =====\n");
     ei_printf("Label:     %s\n", dev->get_sample_label().c_str());
-    ei_printf("Interval:  %.2f ms.\n", dev->get_sample_interval_ms());
-    ei_printf("Length:    %lu ms.\n", dev->get_sample_length_ms());
+    ei_printf("Interval:  %.2lf ms.\n", (double)dev->get_sample_interval_ms());
+    ei_printf("Length:    %u ms.\n", dev->get_sample_length_ms());
     ei_printf("HMAC key:  %s\n", dev->get_sample_hmac_key().c_str());
     ei_printf("\n");
     ei_printf("===== Upload settings =====\n");

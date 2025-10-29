@@ -78,7 +78,7 @@ static float calculate_cluster_distance(float *input, size_t input_size, const e
 
     float dist = 0.0f;
     for (size_t ix = 0; ix < input_size; ix++) {
-        dist += pow(input[ix] - cluster->centroid[ix], 2);
+        dist += (input[ix] - cluster->centroid[ix]) * (input[ix] - cluster->centroid[ix]);
     }
     return sqrt(dist) - cluster->max_error;
 }

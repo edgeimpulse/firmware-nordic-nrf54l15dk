@@ -59,7 +59,7 @@ namespace filters {
         size_t size)
     {
         int n_steps = filter_order / 2;
-        float a = tan(M_PI * cutoff_freq / sampling_freq);
+        float a = tan((float)M_PI * cutoff_freq / sampling_freq);
         float a2 = pow(a, 2);
         float *A = (float*)ei_dsp_calloc(n_steps, sizeof(float));
         float *d1 = (float*)ei_dsp_calloc(n_steps, sizeof(float));
@@ -70,11 +70,11 @@ namespace filters {
 
         // Calculate the filter parameters
         for(int ix = 0; ix < n_steps; ix++) {
-            float r = sin(M_PI * ((2.0 * ix) + 1.0) / (2.0 * filter_order));
-            sampling_freq = a2 + (2.0 * a * r) + 1.0;
+            float r = sin((float)M_PI * ((2.0f * ix) + 1.0f) / (2.0f * filter_order));
+            sampling_freq = a2 + (2.0f * a * r) + 1.0f;
             A[ix] = a2 / sampling_freq;
-            d1[ix] = 2.0 * (1 - a2) / sampling_freq;
-            d2[ix] = -(a2 - (2.0 * a * r) + 1.0) / sampling_freq;
+            d1[ix] = 2.0f * (1 - a2) / sampling_freq;
+            d2[ix] = -(a2 - (2.0f * a * r) + 1.0f) / sampling_freq;
         }
 
         // Apply the filter
@@ -83,7 +83,7 @@ namespace filters {
 
             for (int i = 0; i < n_steps; i++) {
                 w0[i] = d1[i] * w1[i] + d2[i] * w2[i] + dest[sx];
-                dest[sx] = A[i] * (w0[i] + (2.0 * w1[i]) + w2[i]);
+                dest[sx] = A[i] * (w0[i] + (2.0f * w1[i]) + w2[i]);
                 w2[i] = w1[i];
                 w1[i] = w0[i];
             }
@@ -115,7 +115,7 @@ namespace filters {
         size_t size)
     {
         int n_steps = filter_order / 2;
-        float a = tan(M_PI * cutoff_freq / sampling_freq);
+        float a = tan((float)M_PI * cutoff_freq / sampling_freq);
         float a2 = pow(a, 2);
         float *A = (float*)ei_dsp_calloc(n_steps, sizeof(float));
         float *d1 = (float*)ei_dsp_calloc(n_steps, sizeof(float));
@@ -126,11 +126,11 @@ namespace filters {
 
         // Calculate the filter parameters
         for (int ix = 0; ix < n_steps; ix++) {
-            float r = sin(M_PI * ((2.0 * ix) + 1.0) / (2.0 * filter_order));
-            sampling_freq = a2 + (2.0 * a * r) + 1.0;
+            float r = sin((float)M_PI * ((2.0f * ix) + 1.0f) / (2.0f * filter_order));
+            sampling_freq = a2 + (2.0f * a * r) + 1.0f;
             A[ix] = 1.0f / sampling_freq;
-            d1[ix] = 2.0 * (1 - a2) / sampling_freq;
-            d2[ix] = -(a2 - (2.0 * a * r) + 1.0) / sampling_freq;
+            d1[ix] = 2.0f * (1 - a2) / sampling_freq;
+            d2[ix] = -(a2 - (2.0f * a * r) + 1.0f) / sampling_freq;
         }
 
         // Apply the filter
@@ -139,7 +139,7 @@ namespace filters {
 
             for (int i = 0; i < n_steps; i++) {
                 w0[i] = d1[i] * w1[i] + d2[i] * w2[i] + dest[sx];
-                dest[sx] = A[i] * (w0[i] - (2.0 * w1[i]) + w2[i]);
+                dest[sx] = A[i] * (w0[i] - (2.0f * w1[i]) + w2[i]);
                 w2[i] = w1[i];
                 w1[i] = w0[i];
             }
