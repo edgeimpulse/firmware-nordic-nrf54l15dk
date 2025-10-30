@@ -1,7 +1,3 @@
-#
-# Copyright (c) 2024 Edge Impulse
-#
-
 source "Kconfig.zephyr"
 
 menu "Edge Impulse nRF54L15DK example"
@@ -17,6 +13,12 @@ config EI_INFERENCE_THREAD_PRIO
     default 5
     help
       "Set the Edge Impulse inference thread priority. The lower number, the higher prority."
+
+config EI_USE_EXTERNAL_FLASH
+    bool "Use external flash for EI storage"
+    default y
+    help
+      Enable use of external flash (e.g., for DK board). Disable for boards without external flash like XIAO.
 
 source "subsys/logging/Kconfig.template.log_config"
 

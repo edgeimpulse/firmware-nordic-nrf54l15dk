@@ -101,9 +101,19 @@ uint32_t EiFlashMemory::erase_data(uint32_t address, uint32_t num_bytes)
 EiFlashMemory::EiFlashMemory(uint32_t config_size):EiDeviceMemory(config_size, 90, 0, 4096)
 {
     int err;
+#if CONFIG_EI_USE_EXTERNAL_FLASH
     err = flash_area_open(FLASH_AREA_ID(external_flash), (const flash_area**)&ext_flash_area);
+#else
+    err = flash_area_open(FLASH_AREA_ID(ei_storage), (const flash_area**)&ext_flash_area);
+#endif
     if(err) {
-        LOG_ERR("Failed to open flash area: external_flash");
+        LOG_ERR("Failed to open flash area: %s", 
+#if CONFIG_EI_USE_EXTERNAL_FLASH
+        "external_flash"
+#else
+        "ei_storage"
+#endif
+        );
         LOG_INF("flash_area_open returned: %d", err);
         return;
     }
