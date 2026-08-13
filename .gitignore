@@ -6,3 +6,4 @@ bootloader/
 modules/
 tools/
 *.hex
+copy-sdk.sh
